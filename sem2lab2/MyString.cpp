@@ -1,59 +1,53 @@
-+ACM-include +ADw-iostream+AD4-
-+ACM-include +ADw-string.h+AD4-
-+ACM-include +ADw-vector+AD4-
-+ACM-include +ADw-string+AD4-
+#include <iostream>
+#include <string.h>
+#include <vector>
+using namespace std;
 
-using namespace std+ADs-
-
-class MyString
-+AHs-
+class MyString {
 public:
-	MyString(const string+ACY- str)
-	+AHs-
-		this-+AD4-str +AD0- str+ADs-
-		cout +ADwAPA- +ACIEGgQ+BD0EQQRCBEAEQwQ6BEIEPgRA- +ACI- +ADwAPA- this +ADwAPA- endl+ADs-
-	+AH0-
+	MyString(const string& str) : str(str) {
+		cout << "constructor " << this << endl;
+	}
 
-	MyString(const vector+ADw-string+AD4AJg- strs) +AHs-
-		cout +ADwAPA- +ACIEGgQ+BD0EQQRCBEAEQwQ6BEIEPgRA- +BDQEOwRP- 9 +BDcEMAQ0BDAEPQQ4BE8- +ACI- +ADwAPA- this +ADwAPA- endl+ADs-
-		for (const auto+ACY- str : strs) +AHs-
-			this-+AD4-str +-+AD0- str+ADs-
-		+AH0-
-	+AH0-
+	MyString(const vector<string>& strs) {
+		cout << "constructor of vector<string>" << this << endl;
+		for (const auto& str : strs) {
+			this->str += str;
+		}
+	}
 
-	MyString() +AHs-
-		cout +ADwAPA- +ACIEEQQwBDcEPgQyBEsEOQ- +BBoEPgQ9BEEEQgRABEMEOgRCBD4EQA- +ACI- +ADwAPA- this +ADwAPA- endl+ADs- 
-	+AH0AOw-
+	MyString() { 
+		cout << "default constructor" << this << endl;
+	};
 
 
-	MyString(const MyString+ACY- other) +AHs-
-		cout +ADwAPA- +ACIEGgQ+BD0EQQRCBEAEQwQ6BEIEPgRA- +BDoEPgQ/BDgEQAQ+BDIEMAQ9BDgETw- +ACI- +ADwAPA- this +ADwAPA- endl+ADs-
-		this-+AD4-str +AD0- other.str+ADs-
-	+AH0-
+	MyString(const MyString& other)	{
+		cout << "copy constructor" << this << endl;
+		this->str = other.str;
+	}
 
-	MyString+ACY- operator+AD0-(const MyString+ACY- other) +AHs-
-		cout +ADwAPA- +ACIEHgQ/BDUEQAQwBEIEPgRA- +BD8EQAQ4BEEEMgQwBDgEMgQwBD0EOARP- +ACI- +ADwAPA- this +ADwAPA- endl+ADs-
-		this-+AD4-str +AD0- other.str+ADs-
-		return +ACo-this+ADs-
-	+AH0-
+	MyString& operator=(const MyString& other) {
+		cout << "assing constructor " << this << endl;
+		this->str = other.str;
+		return *this;
+	}
 
-	string getStr() +AHs-
-		return str+ADs-
-	+AH0-
+	string getStr() {
+		return str;
+	}
 
-	void setStr(string str)	+AHs-
-		this-+AD4-str +AD0- str+ADs-
-	+AH0-
+	void setStr(string str)	{
+		this->str = str;
+	}
 
-	void print() +AHs-
-		cout +ADwAPA- str +ADwAPA- endl+ADs-
-	+AH0-
+	void print() {
+		cout << str << endl;
+	}
 
-	+AH4-MyString() +AHs-
-		cout +ADwAPA- +ACIEFAQ1BEEEQgRABEMEOgRCBD4EQA- +ACI- +ADwAPA- this +ADwAPA- endl+ADs-
-	+AH0-
-
+	~MyString() { 
+		cout << "destructor " << this << endl;
+	}
 private:
-	string str+ADs-
+	string str;
 
-+AH0AOw-
+};
