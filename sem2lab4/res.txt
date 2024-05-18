@@ -1,0 +1,5 @@
+area: 50.2655radius: 4	center: (10;12)
+area: 28.2743radius: 3	center: (1;1)
+area: 12.5664radius: 2	center: (0;0)
+area: 12.5664radius: 2	center: (0;0)
+area: 3.14159radius: 1	center: (0;0)
